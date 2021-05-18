@@ -1,6 +1,56 @@
- <mvc:View controllerName="com.smdev.myUI5App.controller.Detail"
-  displayBlock="true"
-  xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
-  
+<mvc:View
+	controllerName="com.smdev.myUI5App.controller.Detail"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+>
+	<Page
+		id="page"
+		navButtonPress=".onNavBack"
+		showNavButton="true"
+		title="Supplier Details"
+	>
+		<content>
+			<f:SimpleForm
+				id="SimpleFormDisplay354"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				title="Address"
+				labelSpanXL="3"
+				labelSpanL="3"
+				labelSpanM="3"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				emptySpanXL="4"
+				emptySpanL="4"
+				emptySpanM="4"
+				emptySpanS="0"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="false"
+			>
+				<f:content>
+					<Label text="Name"/>
+					<Text text="{Name}"/>
+					<Label text="City"/>
+					<Text text="{Address/City}"/>
+					<Label text="Country"/>
+					<Text text="{Address/Country}"/>
+					<Label text="Phone Number"/>
+					<Text text="{Address/PhoneNumber}"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button
+					text="Edit"
+					press="onEdit"
+				/>
+			</Toolbar>
+		</footer>
+	</Page>
 </mvc:View>

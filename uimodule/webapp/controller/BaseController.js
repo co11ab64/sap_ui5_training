@@ -62,7 +62,7 @@ sap.ui.define(
                 if (sPreviousHash !== undefined) {
                     window.history.back();
                 } else {
-                    this.getRouter().navTo("appHome", {}, true /*no history*/);
+                    this.getRouter().navTo("master", {}, true /*no history*/);
                 }
             }
         });
