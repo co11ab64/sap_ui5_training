@@ -1,0 +1,8 @@
+ <mvc:View controllerName="com.smdev.myUI5App.controller.Master"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <List headerText="Suppliers" items="{/}">
+    <StandardListItem title="{Name}" type="Navigation" press=".onListItemPress"/>
+  </List>
+</mvc:View>

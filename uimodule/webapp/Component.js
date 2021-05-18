@@ -1,6 +1,11 @@
-sap.ui.define(
-    ["sap/ui/core/UIComponent", "sap/ui/Device", "com/smdev/myUI5App/model/models"],
-    function (UIComponent, Device, models) {
+sap.ui.define([
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "com/smdev/myUI5App/model/models",
+    "./model/AppModel",
+    "sap/base/Log"
+],
+    function (UIComponent, Device, models, AppModel, Log) {
         "use strict";
 
         return UIComponent.extend("com.smdev.myUI5App.Component", {
@@ -22,6 +27,21 @@ sap.ui.define(
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
+                //Instantiate the app model and get the data
+                var oAppModel = new AppModel();
+                this.setModel(oAppModel);
+                jQuery.ajax({
+                    url: 'service/suppliers.json',
+                    success: function (oData) {
+                        // initAppWithFakeRest(oData);
+                        oAppModel.setData(oData);
+                        Log.info("Loaded data to AppModel")
+                    },
+                    error: function (oErr) {
+                        sap.base.Log.error("Could not load server");
+                    }
+                });
             }
         });
     }
