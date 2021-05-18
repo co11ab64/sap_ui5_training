@@ -17,7 +17,7 @@ sap.ui.define(["com/smdev/myUI5App/controller/BaseController"], function (Contro
         _onDetailMatched: function (oEvent) {
             var oArgs = oEvent.getParameter("arguments"),
                 sSupplierId = oArgs.id,
-                sPath = `/${sSupplierId}`;
+                sPath = `/Suppliers/${sSupplierId}`;
             this._bindView(sPath);
         },
         _bindView: function (sPath) {

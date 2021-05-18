@@ -1,6 +1,57 @@
- <mvc:View controllerName="com.smdev.myUI5App.controller.Edit"
-  displayBlock="true"
-  xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
-  
+<mvc:View
+	controllerName="com.smdev.myUI5App.controller.Edit"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+>
+	<Page
+		id="idEditPage"
+		navButtonPress=".onNavBack"
+		showNavButton="true"
+		title="Edit Supplier"
+	>
+		<content>
+			<form:SimpleForm
+				id="idSupplierEditForm"
+				layout="ResponsiveGridLayout"
+				editable="true"
+				class="sapUiResponsiveMargin"
+				width="auto"
+				labelSpanL="3"
+				labelSpanM="3"
+				emptySpanL="4"
+				emptySpanM="4"
+				columnsL="1"
+				columnsM="1"
+			>
+				<form:content>
+					<Label text="Name"/>
+					<Input value="{
+              path: 'Name',
+              type: 'sap.ui.model.odata.type.String'
+            }"/>
+					<Label text="City"/>
+					<Input value="{Address/City}"/>
+          <Label text="Country"/>
+					<Input value="{Address/Country}"/>
+					<Label text="Phone Number"/>
+					<Input value="{
+            path: 'Address/PhoneNumber',
+            type: '.types.PhoneNumber'
+            }"/>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button
+					text="Save"
+					type="Accept"
+					press=".onSave"
+				/>
+			</Toolbar>
+		</footer>
+	</Page>
 </mvc:View>

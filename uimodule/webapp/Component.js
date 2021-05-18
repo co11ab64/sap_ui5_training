@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
+    "sap/ui/thirdparty/sinon",
     "com/smdev/myUI5App/model/models",
     "./model/AppModel",
     "sap/base/Log"
 ],
-    function (UIComponent, Device, models, AppModel, Log) {
+    function (UIComponent, Device, sinon, models, AppModel, Log) {
         "use strict";
 
         return UIComponent.extend("com.smdev.myUI5App.Component", {
@@ -34,7 +35,8 @@ sap.ui.define([
                 jQuery.ajax({
                     url: 'service/suppliers.json',
                     success: function (oData) {
-                        // initAppWithFakeRest(oData);
+                        initAppWithFakeRest(oData);
+                        // oAppModel.loadData("/Suppliers");
                         oAppModel.setData(oData);
                         Log.info("Loaded data to AppModel")
                     },

@@ -7,6 +7,12 @@ sap.ui.define([
     return Controller.extend("com.smdev.myUI5App.controller.Master", {
         onInit: function () {
             Log.info("Master controller init");
+            // var oModel = this.getOwnerComponent().getModel();
+            // oModel.read('/Suppliers', {
+            //     success: console.log,
+            //     error: console.error
+            // });
+            // jQuery.ajax('/Suppliers').then(data=>console.log(data));
         },
         onListItemPress: function (oEvent) {
             var sPath = oEvent.getSource().getBindingContextPath(),
